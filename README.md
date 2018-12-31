@@ -1,6 +1,4 @@
-クライアント: Typescript w/ React + Redux + MaterialUI
-サーバ: Python w/ AioHTTP
-なプロジェクトのBoilerplate
+クライアント: Typescript w/ React + Redux + MaterialUI, サーバ: Python w/ AioHTTP なプロジェクトのBoilerplate
 
 
 # Setup
@@ -12,3 +10,9 @@ $ yarn
 $ pipenv --python 3.7
 $ pipenv install -e '.[test]'
 ```
+
+# In development
+## Pythonのモジュールを追加したら
+
+1. setup.pyの`install_requires`, `extras_require`に追加
+2. `pipenv install -e '.[test]'`
