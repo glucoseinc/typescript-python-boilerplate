@@ -1,3 +1,4 @@
+import importlib
 import json
 
 from sanic import Sanic
@@ -14,6 +15,11 @@ def create_webapp():
         manifest = json.load(fp)
 
     webapp.jinja_env.globals.update(MANIFEST=manifest)
+
+    # register blueprints
+    for module, url_prefix in [('.api', '/api'), ('.public', '/')]:
+        mod = importlib.import_module(module, __name__.split('.')[0])
+        webapp.blueprint(mod.bp, url_prefix=url_prefix)
 
     return webapp
 

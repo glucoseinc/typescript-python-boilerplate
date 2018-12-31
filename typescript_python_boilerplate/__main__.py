@@ -36,11 +36,6 @@ def run(ctx: click.Context, servce_static: Optional[bool] = None):
             os.path.abspath('./static/manifest.json')
         ])
 
-    # register blueprints
-    from .public import bp as public
-
-    webapp.blueprint(public)
-
     # service static files
     if servce_static:
         webapp.static('/static', './static')
