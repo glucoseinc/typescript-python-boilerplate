@@ -16,3 +16,10 @@ $ pipenv install -e '.[test]'
 
 1. setup.pyの`install_requires`, `extras_require`に追加
 2. `pipenv install -e '.[test]'`
+
+
+# Issues
+
+## typescript 3.2.2 + history でコンパイルエラー
+
+https://github.com/Microsoft/TypeScript/issues/28810
