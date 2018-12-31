@@ -8,13 +8,14 @@ setup(
     version='0.0.1',
     packages=find_packages(exclude=['tests']),
     install_requires=[
+        'click',
         'jinja2',
         'sanic',
     ],
     dependency_links=[],
     entry_points={
         'console_scripts': [
-            'typescript-python-boilerplate=typescript_python_boilerplate.__main__:main',
+            'typescript-python-boilerplate=typescript_python_boilerplate.__main__:cli',
         ],
     },
     extras_require={
