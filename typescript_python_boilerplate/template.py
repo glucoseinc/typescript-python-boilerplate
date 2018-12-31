@@ -6,7 +6,7 @@ from __future__ import annotations
 import asyncio
 import functools
 import os
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -28,7 +28,7 @@ def init_jinja2_template(app: Sanic) -> None:
 
 
 def get_jinja_env_from_app(app: Sanic) -> Environment:
-    return app.jinja_env
+    return cast(Environment, app.jinja_env)
 
 
 async def render_template(
