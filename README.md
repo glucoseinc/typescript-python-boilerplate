@@ -5,6 +5,10 @@
 
 # Setup
 
+Pythonがなければpyenvで調達
+
 ```
 $ yarn
+$ pipenv --python 3.7
+$ pipenv install -e '.[test]'
 ```

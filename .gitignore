@@ -1,4 +1,7 @@
 .awcache/
+.mypy_cache/
+.venv/
 node_modules/
+typescript_python_boilerplate.egg-info/
 static/
 yarn-error.log
