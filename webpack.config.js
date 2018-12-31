@@ -8,7 +8,7 @@ const _resolve = (...args) => path.resolve(__dirname, ...args)
 
 module.exports = (env, argv) => ({
   entry: {
-    'index': './src/js/index.ts'
+    'index': './src/js/index.tsx'
   },
   output: {
     path: _resolve('./static'),
