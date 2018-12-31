@@ -9,6 +9,7 @@ setup(
     packages=find_packages(exclude=['tests']),
     install_requires=[
         'click',
+        'colorama',
         'jinja2',
         'sanic',
     ],

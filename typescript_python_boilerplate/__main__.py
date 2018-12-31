@@ -1,7 +1,7 @@
 import click
 
 from .template import templated
-from .webapp import create_webapp
+from .logging import init_logging
 
 
 @click.group()
