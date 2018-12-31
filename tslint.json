@@ -12,7 +12,10 @@
     ]
   },
   "rules": {
-    "interface-name": false
+    "interface-name": false,
+    "no-implicit-dependencies": [true, ["@src/js"]],
+    "no-submodule-imports": [true, "@material-ui/core", "@material-ui/icons", "@material-ui/styles", "@src/js"],
+    "object-literal-sort-keys": false
     // "array-type": [true, "array"],
     // "arrow-return-shorthand": true,
     // "class-name": true,

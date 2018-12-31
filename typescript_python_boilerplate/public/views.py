@@ -3,6 +3,8 @@ from ..template import templated
 
 
 @bp.route('/')
+@bp.route('/chat')
+@bp.route('/login')
 @templated('index.html')
-def index(request):
-    return {'hello': 'world'}
+def page(request):
+    return {}
