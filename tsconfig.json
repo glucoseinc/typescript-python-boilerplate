@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["dom", "es2015", "es2017.string", "es2017.object"],
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+        "@assets/*": ["assets/*"],
+        "@node_modules/*": ["node_modules/*"],
+        "@src/*": ["src/*"],
+    }
+  }
+}
