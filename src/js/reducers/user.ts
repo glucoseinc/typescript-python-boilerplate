@@ -17,8 +17,6 @@ export default function user(
   state: UserState = initialState,
   action: Action
 ): UserState {
-  console.log('!userReducer', state, action)
-
   if (isType(action, userActions.login)) {
     return {
       ...state,
