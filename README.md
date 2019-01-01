@@ -51,6 +51,11 @@ https://github.com/Microsoft/TypeScript/issues/28810
 
 https://github.com/mui-org/material-ui/issues/14040
 
+[このworkaround](https://github.com/mui-org/material-ui/issues/14040#issuecomment-450690273)で以下を設定している。治ったら消すこと
+```package.json
+    "jss": "~10.0.0-alpha.5",
+```
+
 
 # TODO
 
