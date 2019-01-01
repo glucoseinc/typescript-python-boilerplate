@@ -26,6 +26,14 @@ $ pipenv install -e '.[test]'
 ```
 
 # In development
+
+## Chrome Redux DevTool
+
+あると便利
+[Chrome Web Store](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)からインストールできる
+
+便利
+
 ## Pythonのモジュールを追加したら
 
 1. setup.pyの`install_requires`, `extras_require`に追加
