@@ -23,9 +23,11 @@ def cli(ctx: click.Context, debug: bool):
 
 
 @cli.command()  # @cli, not @click!
+@click.option('--host', default='127.0.0.1')
+@click.option('--port', default=8000, type=int)
 @click.option('--servce-static', is_flag=True, default=None)
 @click.pass_context
-def run(ctx: click.Context, servce_static: Optional[bool] = None):
+def run(ctx: click.Context, host: str, port: int, servce_static: Optional[bool] = None):
     debug = ctx.obj['DEBUG']
     if servce_static is None:
         servce_static = debug
@@ -40,10 +42,7 @@ def run(ctx: click.Context, servce_static: Optional[bool] = None):
     if servce_static:
         webapp.static('/static', './static')
 
-    webapp.run(
-        host='0.0.0.0', port=8000,
-        debug=debug,
-    )
+    webapp.run(host=host, port=port, debug=debug)
 
 
 def patch_reloader(my_files: List[str]) -> Iterator[str]:

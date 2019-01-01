@@ -1,0 +1,7 @@
+.venv/
+bin/
+node_modules/
+tests/
+tmp/
+.git
+.coverage

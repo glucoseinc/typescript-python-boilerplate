@@ -15,7 +15,14 @@ https://qiita.com/uryyyyyyy/items/d8bae6a7fca1c4732696#actiondispacherの書き�
 ## サーバ
 
 
-# Setup
+# Setup(use docker)
+
+```
+% make build
+```
+
+
+# Setup(no using docker)
 
 Pythonがなければpyenvで調達
 

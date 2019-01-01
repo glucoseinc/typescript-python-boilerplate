@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: services/frontend/Dockerfile
+
+    command: ["yarn", "run", "watch"]
+
+    image: typescript-python-boilerplate-frontend:latest
+
+    volumes:
+      - ./:/build
+
+  nginx:
+    volumes:
+      - ./static:/app/static
+
+  webapp:
+    command: ["--debug", "run", "--host", "0.0.0.0", "--port", "80"]
+
+    volumes:
+      - ./static:/app/static

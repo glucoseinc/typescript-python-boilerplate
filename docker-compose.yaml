@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5-alpine3.8
+
+  nginx:
+    build:
+      context: .
+      dockerfile: services/nginx/Dockerfile
+
+    image: typescript-python-boilerplate-nginx:latest
+
+    ports:
+      - 8080:80
+
+  webapp:
+    build:
+      context: .
+      dockerfile: services/webapp/Dockerfile
+
+    image: typescript-python-boilerplate-webapp:latest
+
+    depends_on:
+      - redis
+
+    environment:
+      DB_URL: 'mysql+pymysql://circle_core:YQ75GU76Cp7R@mysql/circle_core'
+
