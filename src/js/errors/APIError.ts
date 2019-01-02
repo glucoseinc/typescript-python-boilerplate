@@ -1,3 +1,6 @@
+/**
+ * サーバAPIが返してきたエラー
+ */
 export class APIError extends Error {
   constructor(...params: any[]) {
     super(...params)
