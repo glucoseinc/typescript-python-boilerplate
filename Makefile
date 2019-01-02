@@ -13,3 +13,18 @@ run:
 .PHONY: ps
 ps:
 	$(dc) ps
+
+.PHONY: format
+format:
+	pipenv run format
+	yarn run format
+
+.PHONY: lint
+lint:
+	pipenv run lint
+	yarn run lint
+
+.PHONY: test
+test:
+	pipenv run test
+	yarn run test
