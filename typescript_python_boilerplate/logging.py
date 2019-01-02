@@ -53,7 +53,7 @@ def init_logging(debug, force_tty=False):
     else:
         # init logging
         # TODO: LTSVにする
-        fh.setFormatter(logging.Formatter('%(levelname)s %(asctime)s %(name)s : %(message)s',))
+        fh.setFormatter(logging.Formatter('%(levelname)5s %(asctime)s %(name)30s : %(message)s',))
 
     root_logger = logging.getLogger()
     root_logger.addHandler(fh)

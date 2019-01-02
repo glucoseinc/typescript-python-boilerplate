@@ -6,9 +6,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from cerberus import Validator as BaseValidator, rules_set_registry, schema_registry
+from cerberus import Validator, rules_set_registry, schema_registry
 from cerberus.errors import BasicErrorHandler
 
+from .constants import ChatEventType, WSClientActionType
 from .exceptions import ValidationError
 
 if TYPE_CHECKING:
@@ -33,7 +34,7 @@ if TYPE_CHECKING:
         timestamp: int
         payload: ChatEventPayload
 
-    SendChatEventActionPayload = JSChatEvent
+    JSSendChatEventActionPayload = JSChatEvent
 
 
 class ThrowErrorHandle(BasicErrorHandler):
@@ -43,12 +44,7 @@ class ThrowErrorHandle(BasicErrorHandler):
         raise ValidationError(error)
 
 
-class Validator(BaseValidator):
-
-    def __init__(self, *args, **kwargs):
-        kwargs['error_handler'] = ThrowErrorHandle
-        super().__init__(*args, **kwargs)
-
+validator = Validator(error_handle=ThrowErrorHandle)
 
 REX_UUID = r'(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
 
@@ -85,7 +81,25 @@ schema_registry.add('JSChatEventMessagePayload', {
 })
 
 schema_registry.add(
-    'JSWebSocketClientAction', {
+    'JSWebSocketClientMessage', {
+        'action': {
+            'type': 'string',
+        },
+        'payload': {
+            'oneof': [
+                {
+                    'schema': 'JSSendChatEventActionPayload',
+                    'dependencies': {
+                        'type': WSClientActionType.SEND_CHAT_MESSAGE.value
+                    }
+                }
+            ]
+        }
+    }
+)
+
+schema_registry.add(
+    'JSSendChatEventActionPayload', {
         'type': {
             'type': 'string'
         },
@@ -98,7 +112,7 @@ schema_registry.add(
             'oneof': [{
                 'schema': 'JSChatEventMessagePayload',
                 'dependencies': {
-                    'type': 'message'
+                    'type': ChatEventType.message.value
                 }
             }]
         }
