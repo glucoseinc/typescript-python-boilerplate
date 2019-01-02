@@ -1,5 +1,6 @@
 .venv/
 bin/
+coverage_js/
 coverage_py/
 node_modules/
 tests/

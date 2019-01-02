@@ -5,9 +5,9 @@ import store from './store'
 const RECONNECT_INTERVAL = 5000
 
 class ChatWebsocket {
-  private websocket?: WebSocket
   private lastReconnect: number
-  private reconnectTimerId: number
+  private reconnectTimerId?: any
+  private websocket?: WebSocket
 
   constructor() {
     this.lastReconnect = 0
@@ -36,7 +36,7 @@ class ChatWebsocket {
     }
 
     this.lastReconnect = now
-    this.reconnectTimerId = 0
+    delete this.reconnectTimerId
 
     this.start()
   }

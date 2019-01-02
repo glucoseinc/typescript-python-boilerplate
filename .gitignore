@@ -2,6 +2,7 @@
 .mypy_cache/
 .venv/
 __pycache__/
+coverage_js/
 coverage_py/
 node_modules/
 typescript_python_boilerplate.egg-info/

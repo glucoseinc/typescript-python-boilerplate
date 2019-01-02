@@ -89,6 +89,7 @@
       "!src/**/*.stories.{ts,tsx}",
       "!src/**/index.{ts,tsx}"
     ],
+    "coverageDirectory": "./coverage_js",
     "moduleFileExtensions": [
       "ts",
       "tsx",
