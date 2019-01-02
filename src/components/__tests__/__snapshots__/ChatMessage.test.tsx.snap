@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatMessage renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WithStyles(ChatMessage)
+    chatEvent={
+      Object {
+        "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "payload": Object {
+          "message": "hogehgoehogehoge",
+          "user": Object {
+            "discriminator": "1234",
+            "nickname": "test",
+          },
+        },
+        "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "timestamp": 1546442227650,
+        "type": "message",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "chatEvent": Object {
+        "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "payload": Object {
+          "message": "hogehgoehogehoge",
+          "user": Object {
+            "discriminator": "1234",
+            "nickname": "test",
+          },
+        },
+        "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "timestamp": 1546442227650,
+        "type": "message",
+      },
+      "classes": Object {
+        "date": "ChatMessage-date-1",
+        "discriminator": "ChatMessage-discriminator-2",
+        "meta": "ChatMessage-meta-3",
+        "nickname": "ChatMessage-nickname-4",
+        "root": "ChatMessage-root-5",
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "chatEvent": Object {
+          "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+          "payload": Object {
+            "message": "hogehgoehogehoge",
+            "user": Object {
+              "discriminator": "1234",
+              "nickname": "test",
+            },
+          },
+          "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+          "timestamp": 1546442227650,
+          "type": "message",
+        },
+        "classes": Object {
+          "date": "ChatMessage-date-1",
+          "discriminator": "ChatMessage-discriminator-2",
+          "meta": "ChatMessage-meta-3",
+          "nickname": "ChatMessage-nickname-4",
+          "root": "ChatMessage-root-5",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
