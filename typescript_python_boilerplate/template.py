@@ -21,14 +21,15 @@ if TYPE_CHECKING:
     from sanic.response import HTTPResponse
 
 
-def init_jinja2_template(app: Sanic) -> None:
-    app.jinja_env = env = Environment(enable_async=True)
+def init_jinja2_template(webapp: Sanic) -> None:
+    assert not hasattr(webapp, 'jinja_env')
+    webapp.jinja_env = env = Environment(enable_async=True)
     env.loader = FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates'))
-    env.globals.update(url_for=app.url_for)
+    env.globals.update(url_for=webapp.url_for)
 
 
-def get_jinja_env_from_app(app: Sanic) -> Environment:
-    return cast(Environment, app.jinja_env)
+def get_jinja_env_from_app(webapp: Sanic) -> Environment:
+    return cast(Environment, webapp.jinja_env)
 
 
 async def render_template(

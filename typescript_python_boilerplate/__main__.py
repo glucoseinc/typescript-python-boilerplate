@@ -4,8 +4,9 @@ from typing import TYPE_CHECKING
 
 import click
 
-from .logging import init_logging
-from .webapp import load_manifest, webapp
+from .app import App
+from .logging import init_logging, logger
+from .webapp import create_webapp, load_manifest
 
 if TYPE_CHECKING:
     from typechecking import Optional
@@ -24,12 +25,15 @@ def cli(ctx: click.Context, debug: bool):
 @cli.command()  # @cli, not @click!
 @click.option('--host', default='127.0.0.1')
 @click.option('--port', default=8000, type=int)
+@click.option('--redis-url', default='redis://redis/1')
 @click.option('--servce-static', is_flag=True, default=None)
 @click.pass_context
-def run(ctx: click.Context, host: str, port: int, servce_static: Optional[bool] = None):
+def run(ctx: click.Context, host: str, port: int, redis_url: str, servce_static: Optional[bool] = None):
     debug = ctx.obj['DEBUG']
     if servce_static is None:
         servce_static = debug
+
+    webapp = create_webapp()
 
     if debug:
         # debug時はmanifest.jsonを毎回読み込むように
@@ -41,6 +45,16 @@ def run(ctx: click.Context, host: str, port: int, servce_static: Optional[bool] 
     if servce_static:
         webapp.static('/static', './static')
 
+    # register initialization func. this must run in event loop
+    async def initialize_app():
+        logger.info('Initialize typescript-python-boilerplate')
+        app = await App.create(redis_url=redis_url)
+        assert not hasattr(webapp, 'app')
+        webapp.app = app
+
+    webapp.add_task(initialize_app)
+
+    # run server
     webapp.run(host=host, port=port, debug=debug)
 
 

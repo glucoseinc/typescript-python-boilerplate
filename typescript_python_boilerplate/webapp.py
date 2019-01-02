@@ -27,6 +27,4 @@ def load_manifest():
     return manifest
 
 
-webapp = create_webapp()
-
-__all__ = ('webapp', 'load_manifest')
+__all__ = ('create_webapp', 'load_manifest')
