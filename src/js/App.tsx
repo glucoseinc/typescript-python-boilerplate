@@ -19,11 +19,11 @@ import RootPage from './pages/RootPage'
 const theme = createMuiTheme({
   palette: {
     primary: purple,
-    secondary: green
+    secondary: green,
   },
   typography: {
-    useNextVariants: true
-  }
+    useNextVariants: true,
+  },
 })
 
 interface AppProps {

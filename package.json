@@ -107,8 +107,12 @@
     }
   },
   "prettier": {
+    "arrowParens": "always",
     "bracketSpacing": false,
+    "jsxBracketSameLine": true,
+    "printWidth": 120,
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }

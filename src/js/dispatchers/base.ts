@@ -1,9 +1,9 @@
-import {AnyAction} from 'redux'
+import {Dispatch} from 'redux'
 
 export class ActionDispatcher {
-  protected dispatch: (action: AnyAction) => any
+  protected dispatch: Dispatch
 
-  constructor(dispatch: (action: AnyAction) => any) {
+  constructor(dispatch: Dispatch) {
     this.dispatch = dispatch
   }
 }

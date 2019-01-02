@@ -33,37 +33,34 @@ const styles = (theme: Theme) =>
       [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
         width: 400,
         marginLeft: 'auto',
-        marginRight: 'auto'
-      }
+        marginRight: 'auto',
+      },
     },
     paper: {
       marginTop: theme.spacing.unit * 8,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
-        .spacing.unit * 3}px`
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
     avatar: {
       margin: theme.spacing.unit,
-      backgroundColor: theme.palette.secondary.main
+      backgroundColor: theme.palette.secondary.main,
     },
     form: {
       width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing.unit
+      marginTop: theme.spacing.unit,
     },
     submit: {
-      marginTop: theme.spacing.unit * 3
-    }
+      marginTop: theme.spacing.unit * 3,
+    },
   })
 
 interface LoginPageProps {
   user: UserState
 }
 
-class LoginPage extends React.Component<
-  LoginPageProps & WithStyles<typeof styles> & DispatchProp
-> {
+class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof styles> & DispatchProp> {
   // overrides
   public componentDidUpdate(prevProps: LoginPageProps) {
     // login完了したらchatにリダイレクトする
@@ -89,21 +86,10 @@ class LoginPage extends React.Component<
           <form className={classes.form} onSubmit={this.onSubmit}>
             <FormControl margin="normal" required={true} fullWidth={true}>
               <InputLabel htmlFor="nickname">Nickname</InputLabel>
-              <Input
-                id="nickname"
-                name="nickname"
-                autoComplete="nickname"
-                autoFocus={true}
-              />
+              <Input id="nickname" name="nickname" autoComplete="nickname" autoFocus={true} />
             </FormControl>
 
-            <Button
-              type="submit"
-              fullWidth={true}
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
+            <Button type="submit" fullWidth={true} variant="contained" color="primary" className={classes.submit}>
               Log in
             </Button>
           </form>
@@ -119,15 +105,13 @@ class LoginPage extends React.Component<
 
     const formData = new FormData(event.currentTarget)
 
-    await new UserActionDispatcher(dispatch).login(formData.get(
-      'nickname'
-    ) as string)
+    await new UserActionDispatcher(dispatch).login(formData.get('nickname') as string)
   }
 }
 
 const select = (state: AppState) => {
   return {
-    user: state.user
+    user: state.user,
   }
 }
 

@@ -4,7 +4,7 @@ import * as api from '@src/js/api'
 import {ActionDispatcher} from './base'
 
 function asyncSleep(interval: number) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setInterval(resolve, interval)
   })
 }

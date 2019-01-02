@@ -7,9 +7,7 @@ interface ChatPageProps {
   user: UserState
 }
 
-const ChatPage: React.FunctionComponent<
-  ChatPageProps & DispatchProp
-> = props => {
+const ChatPage: React.FunctionComponent<ChatPageProps & DispatchProp> = (props) => {
   const {me} = props.user
 
   return (
@@ -24,7 +22,7 @@ const ChatPage: React.FunctionComponent<
 
 const select = (state: AppState) => {
   return {
-    user: state.user
+    user: state.user,
   }
 }
 

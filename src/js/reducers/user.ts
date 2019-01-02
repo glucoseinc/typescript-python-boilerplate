@@ -10,19 +10,18 @@ export interface UserState {
 }
 
 const initialState: UserState = {
-  isLoggedIn: false
+  isLoggedIn: false,
 }
 
-export default function user(
-  state: UserState = initialState,
-  action: Action
-): UserState {
+export default function user(state: UserState = initialState, action: Action): UserState {
   if (isType(action, userActions.login)) {
     return {
       ...state,
       isLoggedIn: true,
-      me: action.payload.me
+      me: action.payload.me,
     }
+  } else if (isType(action, userActions.logout)) {
+    return initialState
   }
 
   return state

@@ -13,7 +13,7 @@ export {UserState}
 const rootReducer = (history: History) =>
   combineReducers({
     router: connectRouter(history),
-    user: userReduicer
+    user: userReduicer,
   })
 
 export default rootReducer

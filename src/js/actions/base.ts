@@ -1,8 +1,6 @@
 import actionCreatorFactory from 'typescript-fsa'
 
-export const actionCreator = actionCreatorFactory(
-  'typescript-python-boilerplate'
-)
+export const actionCreator = actionCreatorFactory('typescript-python-boilerplate')
 
 // export const actionTypePrefix = '@@typescript-python-boilerplate/'
 

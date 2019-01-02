@@ -14,23 +14,21 @@ import React from 'react'
 const styles = (theme: Theme) =>
   createStyles({
     appBar: {
-      zIndex: theme.zIndex.drawer + 1
+      zIndex: theme.zIndex.drawer + 1,
     },
     appBarSpacer: theme.mixins.toolbar, /// < ださいけど、MateiralUIのsampleの通り...
     mainContent: {
       flexGrow: 1,
-      padding: theme.spacing.unit
+      padding: theme.spacing.unit,
     },
     root: {
-      display: 'flex'
+      display: 'flex',
     },
     title: {},
-    toolbar: {}
+    toolbar: {},
   })
 
-const AppContainer: React.FunctionComponent<
-  WithStyles<typeof styles>
-> = props => {
+const AppContainer: React.FunctionComponent<WithStyles<typeof styles>> = (props) => {
   const {children, classes} = props
 
   return (
@@ -39,13 +37,7 @@ const AppContainer: React.FunctionComponent<
 
       <AppBar position="absolute" className={classNames(classes.appBar)}>
         <Toolbar className={classes.toolbar}>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap={true}
-            className={classes.title}
-          >
+          <Typography component="h1" variant="h6" color="inherit" noWrap={true} className={classes.title}>
             typescript-python-boilerplate
           </Typography>
         </Toolbar>

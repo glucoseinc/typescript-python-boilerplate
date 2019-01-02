@@ -11,7 +11,7 @@ interface APIResponse<T> {
 }
 
 const publicApi = axios.create({
-  baseURL: '/api'
+  baseURL: '/api',
 })
 
 export async function login(nickname: string): Promise<User> {

@@ -14,17 +14,13 @@ class Authoized extends React.Component<AuthoizedProps, {}> {
     // const {isAuthorized}
     const isAuthorized = this.props.user.isLoggedIn
 
-    return isAuthorized ? (
-      <Route children={this.props.children} />
-    ) : (
-      <Redirect to={'/login'} />
-    )
+    return isAuthorized ? <Route children={this.props.children} /> : <Redirect to={'/login'} />
   }
 }
 
 const select = (state: AppState) => {
   return {
-    user: state.user
+    user: state.user,
   }
 }
 
