@@ -11,9 +11,12 @@ export interface ChatEvent<Payload = any> {
   payload: Payload
 }
 
-function createChatEventFactory<Payload>(
-  type: keyof typeof ChatEventTypes
-): (localId: string, serverId: string | null, timestamp: number, payload: Payload) => ChatEvent<Payload> {
+interface ChatEventCreator<Payload> {
+  match: (chatEvent: ChatEvent) => chatEvent is ChatEvent<Payload>
+  (localId: string, serverId: string | null, timestamp: number, payload: Payload): ChatEvent<Payload>
+}
+
+function createChatEventFactory<Payload>(type: keyof typeof ChatEventTypes): ChatEventCreator<Payload> {
   function factory(localId: string, serverId: string | null, timestamp: number, payload: Payload): ChatEvent<Payload> {
     return {
       type,

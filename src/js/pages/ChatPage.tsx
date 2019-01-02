@@ -4,9 +4,10 @@ import TextField from '@material-ui/core/TextField'
 import React from 'react'
 import {connect, DispatchProp} from 'react-redux'
 
+import ChatMessage from '@src/js/components/ChatMessage'
 import ChatActionDispatcher from '@src/js/dispatchers/chat'
 import {AppState, UserState} from '@src/js/reducers'
-import {ChatEvent, User} from '@src/js/types'
+import {ChatEvent, ChatEventMessage, User} from '@src/js/types'
 
 interface ChatPageProps {
   log: ChatEvent[]
@@ -59,9 +60,14 @@ class ChatPage extends React.Component<ChatPageProps & DispatchProp, ChatPageSta
     return (
       <div>
         {log.map((chatEvent: ChatEvent) => {
+          const key = `${chatEvent.serverId}:${chatEvent.localId}`
+          if (ChatEventMessage.match(chatEvent)) {
+            return <ChatMessage key={key} chatEvent={chatEvent} />
+          }
+
           return (
-            <div>
-              {chatEvent.localId}: {chatEvent.serverId}
+            <div key={key}>
+              {chatEvent.type}: {chatEvent.serverId}
             </div>
           )
         })}
