@@ -30,7 +30,7 @@ interface AppProps {
   history: History
 }
 
-const App = ({history}: AppProps) => {
+const App: React.FunctionComponent<AppProps> = ({history}) => {
   return (
     <MuiThemeProvider theme={theme}>
       <AppContainer>
