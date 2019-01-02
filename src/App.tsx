@@ -1,4 +1,3 @@
-import green from '@material-ui/core/colors/green'
 import purple from '@material-ui/core/colors/purple'
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
 
@@ -9,17 +8,17 @@ import {Route, Switch} from 'react-router'
 
 import AppContainer from './components/AppContainer'
 import Authorized from './components/Authorized'
-
 import ChatPage from './pages/ChatPage'
 import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
 import RootPage from './pages/RootPage'
+import {primary, secondary} from './palette'
 
 // material-ui theme
 const theme = createMuiTheme({
   palette: {
-    primary: purple,
-    secondary: green,
+    primary,
+    secondary,
   },
   typography: {
     useNextVariants: true,
