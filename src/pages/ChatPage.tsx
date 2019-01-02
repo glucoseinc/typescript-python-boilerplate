@@ -1,4 +1,7 @@
 import Button from '@material-ui/core/Button'
+import {Theme} from '@material-ui/core/styles/createMuiTheme'
+import createStyles from '@material-ui/core/styles/createStyles'
+import withStyles, {WithStyles} from '@material-ui/core/styles/withStyles'
 import TextField from '@material-ui/core/TextField'
 
 import React from 'react'
@@ -8,6 +11,18 @@ import ChatMessage from '@src/components/ChatMessage'
 import ChatActionDispatcher from '@src/dispatchers/chat'
 import {AppState, UserState} from '@src/reducers'
 import {ChatEvent, ChatEventMessage, User} from '@src/types'
+
+const styles = (theme: Theme) =>
+  createStyles({
+    chatLog: {
+      flex: '1 1 auto',
+    },
+    root: {
+      display: 'flex',
+      flexGrow: 1,
+      flexDirection: 'column',
+    },
+  })
 
 interface ChatPageProps {
   log: ChatEvent[]
@@ -20,8 +35,8 @@ interface ChatPageState {
   message: string
 }
 
-class ChatPage extends React.Component<ChatPageProps & DispatchProp, ChatPageState> {
-  constructor(props: ChatPageProps & DispatchProp) {
+class ChatPage extends React.Component<ChatPageProps & DispatchProp & WithStyles<typeof styles>, ChatPageState> {
+  constructor(props: ChatPageProps & DispatchProp & WithStyles<typeof styles>) {
     super(props)
 
     this.state = {
@@ -31,13 +46,13 @@ class ChatPage extends React.Component<ChatPageProps & DispatchProp, ChatPageSta
   }
 
   public render() {
-    const {me} = this.props
+    const {classes, me} = this.props
     const {isMessageSending, message} = this.state
 
     const disableSendButton = isMessageSending ? true : false
 
     return (
-      <div>
+      <main className={classes.root}>
         {this.renderChatLog()}
         <div>
           <TextField autoFocus={true} multiline={true} value={message} onChange={this.onMessageChanged} />
@@ -45,20 +60,20 @@ class ChatPage extends React.Component<ChatPageProps & DispatchProp, ChatPageSta
             SEND
           </Button>
         </div>
-      </div>
+      </main>
     )
   }
 
   // private
   private renderChatLog() {
-    const {log} = this.props
+    const {classes, log} = this.props
 
     if (!log.length) {
       return <div>チャットがありません</div>
     }
 
     return (
-      <div>
+      <div className={classes.chatLog}>
         {log.map((chatEvent: ChatEvent) => {
           const key = `${chatEvent.serverId}:${chatEvent.localId}`
           if (ChatEventMessage.match(chatEvent)) {
@@ -112,4 +127,4 @@ const select = (state: AppState) => {
   return {me, log}
 }
 
-export default connect(select)(ChatPage)
+export default withStyles(styles)(connect(select)(ChatPage))

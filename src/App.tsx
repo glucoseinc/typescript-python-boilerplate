@@ -34,18 +34,16 @@ const App: React.FunctionComponent<AppProps> = ({history}) => {
     <MuiThemeProvider theme={theme}>
       <AppContainer>
         <ConnectedRouter history={history}>
-          <div>
-            <Switch>
-              <Route exact={true} path="/" component={RootPage} />
-              <Route path="/login" component={LoginPage} />
+          <Switch>
+            <Route exact={true} path="/" component={RootPage} />
+            <Route path="/login" component={LoginPage} />
 
-              <Authorized>
-                <Route path="/chat" component={ChatPage} />
-              </Authorized>
+            <Authorized>
+              <Route path="/chat" component={ChatPage} />
+            </Authorized>
 
-              <Route component={NotFoundPage} />
-            </Switch>
-          </div>
+            <Route component={NotFoundPage} />
+          </Switch>
         </ConnectedRouter>
       </AppContainer>
     </MuiThemeProvider>

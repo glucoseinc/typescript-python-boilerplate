@@ -11,22 +11,29 @@ import classNames from 'classnames'
 
 import React from 'react'
 
-const styles = (theme: Theme) =>
-  createStyles({
+const styles = (theme: Theme) => {
+  // theme.mixins.toolbarは@mediaクエリがあるけど面倒なので無視している...
+  const toolbarHeight: number = +(theme.mixins.toolbar.minHeight || 64)
+  const padding: number = theme.spacing.unit
+
+  return createStyles({
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
     },
-    appBarSpacer: theme.mixins.toolbar, /// < ださいけど、MateiralUIのsampleの通り...
     mainContent: {
+      display: 'flex',
+      flexDirection: 'column',
       flexGrow: 1,
-      padding: theme.spacing.unit,
+      padding: `${theme.spacing.unit + toolbarHeight}px ${theme.spacing.unit * 3}px ${theme.spacing.unit}px`,
     },
     root: {
       display: 'flex',
+      minHeight: '100vh',
     },
     title: {},
     toolbar: {},
   })
+}
 
 const AppContainer: React.FunctionComponent<WithStyles<typeof styles>> = (props) => {
   const {children, classes} = props
@@ -42,10 +49,7 @@ const AppContainer: React.FunctionComponent<WithStyles<typeof styles>> = (props)
           </Typography>
         </Toolbar>
       </AppBar>
-      <div className={classes.mainContent}>
-        <div className={classes.appBarSpacer} />
-        {children}
-      </div>
+      <div className={classes.mainContent}>{children}</div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NotFoundPage: React.FunctionComponent<{}> = () => {
-  return <div>Not Found</div>
+  return <main>Not Found</main>
 }
 
 export default NotFoundPage
