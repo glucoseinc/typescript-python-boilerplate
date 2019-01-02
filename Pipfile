@@ -14,5 +14,5 @@ python_version = "3.7"
 [scripts]
 lint = "flake8 typescript_python_boilerplate tests"
 format = "sh -c 'autopep8 -ir . && yapf -ir -e .venv .'"
-test = "pytest -v --cov=typescript_python_boilerplate --cov-report html:coverage_html --cov-report term-missing:skip-covered tests/"
+test = "pytest -v --cov=typescript_python_boilerplate --cov-report html:coverage_py --cov-report term-missing:skip-covered tests/"
 typing = "mypy --warn-unused-configs typescript_python_boilerplate"

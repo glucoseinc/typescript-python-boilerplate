@@ -1,5 +1,6 @@
 .venv/
 bin/
+coverage_py/
 node_modules/
 tests/
 tmp/

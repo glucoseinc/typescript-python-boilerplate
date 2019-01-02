@@ -2,8 +2,10 @@
 .mypy_cache/
 .venv/
 __pycache__/
+coverage_py/
 node_modules/
 typescript_python_boilerplate.egg-info/
 static/
 tmp/
+.coverage
 yarn-error.log
