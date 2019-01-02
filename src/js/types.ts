@@ -5,7 +5,7 @@ export enum ChatEventTypes {
 
 export interface ChatEvent<Payload = any> {
   type: string
-  localId: string
+  localId: string | null
   serverId: string | null
   timestamp: number
   payload: Payload
@@ -42,4 +42,13 @@ export const ChatEventMessage = createChatEventFactory<ChatEventMessagePayload>(
 export interface User {
   nickname: string
   discriminator: string
+}
+
+// WS
+export enum ClientActionType {
+  sendChatMessage = 'SEND_CHAT_MESSAGE',
+}
+
+export enum ServerActionType {
+  replaceChatLog = 'REPLACE_CHAT_LOG',
 }

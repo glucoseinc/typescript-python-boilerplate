@@ -13,7 +13,7 @@ const initialState: UserState = {
   isLoggedIn: false,
 }
 
-export default function user(state: UserState = initialState, action: Action): UserState {
+export default function userReducer(state: UserState = initialState, action: Action): UserState {
   if (isType(action, userActions.login)) {
     return {
       ...state,

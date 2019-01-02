@@ -52,14 +52,18 @@ class ChatPage extends React.Component<ChatPageProps & DispatchProp, ChatPageSta
   private renderChatLog() {
     const {log} = this.props
 
-    if(!log.length) {
-      return (<div>チャットがありません</div>)
+    if (!log.length) {
+      return <div>チャットがありません</div>
     }
 
     return (
       <div>
         {log.map((chatEvent: ChatEvent) => {
-          return <div>{chatEvent.localId}: {chatEvent.serverId}</div>
+          return (
+            <div>
+              {chatEvent.localId}: {chatEvent.serverId}
+            </div>
+          )
         })}
       </div>
     )

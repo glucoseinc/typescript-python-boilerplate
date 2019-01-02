@@ -18,6 +18,11 @@ export default function chatReducer(state: ChatState = initialState, action: Act
       ...state,
       log: state.log.concat(action.payload.chatEvent),
     }
+  } else if (isType(action, chatActions.replaceChatLog)) {
+    return {
+      ...state,
+      log: action.payload.log,
+    }
   }
 
   return state

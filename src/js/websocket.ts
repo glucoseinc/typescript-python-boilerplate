@@ -1,4 +1,5 @@
 import * as infraActions from './actions/infra'
+import {InternalInconsistencyError} from './errors'
 import store from './store'
 
 const RECONNECT_INTERVAL = 5000
@@ -47,20 +48,28 @@ class ChatWebsocket {
     }
   }
 
-  private onClose(event: Event) {
+  public send(action: string, payload: any) {
+    if (!this.websocket) {
+      throw new InternalInconsistencyError('Failed to stringify ws message')
+    }
+    this.websocket.send(JSON.stringify({action, payload}))
+  }
+
+  // privates
+  private onClose = (event: CloseEvent) => {
     store.dispatch(infraActions.websocketClosed({}))
   }
 
-  private onError(event: Event) {
+  private onError = (event: Event) => {
     store.dispatch(infraActions.websocketConnect.failed({params: {}, error: {}}))
   }
 
-  private onMessage(event: MessageEvent) {
+  private onMessage = (event: MessageEvent) => {
     const payload = JSON.parse(event.data)
-    console.log(payload)
+    store.dispatch(infraActions.websocketMessage(payload))
   }
 
-  private onOpen(event: Event) {
+  private onOpen = (event: Event) => {
     store.dispatch(infraActions.websocketConnect.done({params: {}, result: {}}))
   }
 }

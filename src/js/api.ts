@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import {APIError} from './errors'
+import {APIError, InternalInconsistencyError} from './errors'
 import {User} from './types'
 
 interface APIResponse<T> {
@@ -20,6 +20,10 @@ export async function login(nickname: string): Promise<User> {
 
   if (!response.succeeded) {
     throw new APIError(response.error)
+  }
+
+  if (!response.payload) {
+    throw new InternalInconsistencyError('login result must not be null')
   }
   return response.payload
 }
