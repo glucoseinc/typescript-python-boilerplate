@@ -11,3 +11,4 @@ class WSClientActionType(enum.Enum):
 
 class WSServerActionType(enum.Enum):
     REPLACE_CHAT_LOG = 'REPLACE_CHAT_LOG'
+    APPEND_CHAT_EVENT = 'APPEND_CHAT_EVENT'

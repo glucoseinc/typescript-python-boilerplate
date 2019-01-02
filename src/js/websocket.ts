@@ -48,11 +48,11 @@ class ChatWebsocket {
     }
   }
 
-  public send(action: string, payload: any) {
+  public send(type: string, payload: any) {
     if (!this.websocket) {
       throw new InternalInconsistencyError('Failed to stringify ws message')
     }
-    this.websocket.send(JSON.stringify({action, payload}))
+    this.websocket.send(JSON.stringify({type, payload}))
   }
 
   // privates

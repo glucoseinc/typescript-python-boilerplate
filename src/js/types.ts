@@ -53,5 +53,6 @@ export enum ClientActionType {
 }
 
 export enum ServerActionType {
+  appendChatEvent = 'APPEND_CHAT_EVENT',
   replaceChatLog = 'REPLACE_CHAT_LOG',
 }

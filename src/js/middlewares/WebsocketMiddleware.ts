@@ -26,7 +26,9 @@ const websocketMiddleware: Middleware = ({dispatch, getState}: MiddlewareAPI) =>
     const wsType = action.payload.type
     const wsPayload = action.payload.payload
 
-    if (wsType === ServerActionType.replaceChatLog) {
+    if (wsType === ServerActionType.appendChatEvent) {
+      dispatch(chatActions.appendChatEvent({chatEvent: wsPayload}))
+    } else if (wsType === ServerActionType.replaceChatLog) {
       dispatch(chatActions.replaceChatLog(wsPayload))
     } else {
       throw new InternalInconsistencyError(`unknown server action '${wsType}'`)

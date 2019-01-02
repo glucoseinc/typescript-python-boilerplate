@@ -30,7 +30,6 @@ MAX_CHAT_LOG = 1000
 async def websocket(request: Request, ws: WebSocket) -> None:
     logger.info('WebSocket connected')
     app = request.app.app
-    receiver = asyncio.ensure_future(ws.recv())
 
     # send chat history
     chat_log = await app.redis.lrange(CHAT_LOG, 0, MAX_CHAT_LOG) or []
@@ -38,34 +37,47 @@ async def websocket(request: Request, ws: WebSocket) -> None:
 
     await ws.send(make_server_action(WSServerActionType.REPLACE_CHAT_LOG, {'log': chat_log}))
 
-    try:
-        while True:
-            dones, pendings = await asyncio.wait([receiver], timeout=WAIT_TIMEOUT, return_when=asyncio.FIRST_COMPLETED)
+    async with app.subscribe_chat() as (pubsub_channel, pubsub_get):
+        ws_receiver = asyncio.ensure_future(ws.recv())
+        pubsub_receiver = asyncio.ensure_future(pubsub_get())
 
-            for done in dones:
-                if done is receiver:
-                    await receive_ws_message(app, ws, json.loads(receiver.result()))
-                    receiver = asyncio.ensure_future(ws.recv())
+        try:
+            while True:
+                dones, pendings = await asyncio.wait(
+                    [ws_receiver, pubsub_receiver], timeout=WAIT_TIMEOUT, return_when=asyncio.FIRST_COMPLETED
+                )
 
-            # await ws.send(json.dumps({'hello': 'world'}))
-            # await asyncio.sleep(5000)
-    finally:
-        receiver.cancel()
+                for done in dones:
+                    if done is ws_receiver:
+                        ws_data, ws_receiver = ws_receiver.result(), asyncio.ensure_future(ws.recv())
+                        await app.redis.publish(
+                            pubsub_channel.name, await receive_ws_message(app, ws, json.loads(ws_data))
+                        )
+                    elif done is pubsub_receiver:
+                        pubsub_data, pubsub_receiver = pubsub_receiver.result(), asyncio.ensure_future(pubsub_get())
+                        logger.debug('pubsub: %r', pubsub_data)
+                        await ws.send(make_server_action(WSServerActionType.APPEND_CHAT_EVENT, json.loads(pubsub_data)))
+
+        finally:
+            ws_receiver.cancel()
+            pubsub_receiver.cancel()
 
 
 def make_server_action(action_type: WSServerActionType, payload: Any) -> str:
+    logger.debug('ws message send: %s %s', action_type, repr(payload)[:100] + '...')
+
     return json.dumps({'type': action_type.value, 'payload': payload})
 
 
 async def receive_ws_message(app: App, ws: WebSocket, message: dict) -> None:
-    logger.debug('ws message: %r', message)
+    logger.debug('ws message received: %r', message)
     validator.validate(message, schema='JSWebSocketClientMessage')
 
-    action, payload = message['action'], message['payload']
-    if action == WSClientActionType.SEND_CHAT_MESSAGE.value:
-        await receive_send_chat_message_action(app, ws, payload)
+    action_type, payload = message['type'], message['payload']
+    if action_type == WSClientActionType.SEND_CHAT_MESSAGE.value:
+        return await receive_send_chat_message_action(app, ws, payload)
     else:
-        raise BadActionError('Unsupported client action "{}"'.format(action))
+        raise BadActionError('Unsupported client action type "{}"'.format(action_type))
 
 
 async def receive_send_chat_message_action(app: App, ws: WebSocket, payload: SendChatEventActionPayload) -> None:
@@ -74,5 +86,6 @@ async def receive_send_chat_message_action(app: App, ws: WebSocket, payload: Sen
     payload['serverId'] = server_id
 
     # store
-    x = await app.redis.lpush(CHAT_LOG, json.dumps(payload))
-    logger.debug('sent %r', x)
+    data = json.dumps(payload)
+    await app.redis.lpush(CHAT_LOG, data)
+    return data

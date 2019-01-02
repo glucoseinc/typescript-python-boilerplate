@@ -1,13 +1,12 @@
 import pytest
 
-import typescript_python_boilerplate.interoperability  # noqa
 from typescript_python_boilerplate.exceptions import ValidationError
-from typescript_python_boilerplate.interoperability import Validator
+from typescript_python_boilerplate.interoperability import validator
 
 
 def test_validate_jschatevent():
-    v = Validator()
-    assert v.validate(
+    print(validator.error_handler)
+    assert validator.validate(
         {
             'type': 'message',
             'localId': '3d9143c0-0e7a-11e9-9d5b-4364e32ebf0c',
@@ -21,11 +20,11 @@ def test_validate_jschatevent():
                 }
             }
         },
-        schema='JSWebSocketClientAction'
-    ), v.errors
+        schema='JSChatEvent'
+    ), validator.errors
 
     with pytest.raises(ValidationError):
-        assert v.validate(
+        assert validator.validate(
             {
                 'type': 'badtype',
                 'localId': '3d9143c0-0e7a-11e9-9d5b-4364e32ebf0c',
@@ -39,5 +38,5 @@ def test_validate_jschatevent():
                     }
                 }
             },
-            schema='JSWebSocketClientAction'
-        ), v.errors
+            schema='JSChatEvent'
+        ), validator.errors

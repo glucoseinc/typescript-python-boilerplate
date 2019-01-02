@@ -40,11 +40,12 @@ if TYPE_CHECKING:
 class ThrowErrorHandle(BasicErrorHandler):
     """エラー時にValidationErrorを投げるErrorHandler"""
 
-    def emit(self, error):
-        raise ValidationError(error)
+    def end(self, validator):
+        if validator.errors:
+            raise ValidationError(validator.errors)
 
 
-validator = Validator(error_handle=ThrowErrorHandle)
+validator = Validator(error_handler=ThrowErrorHandle)
 
 REX_UUID = r'(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
 
@@ -81,25 +82,7 @@ schema_registry.add('JSChatEventMessagePayload', {
 })
 
 schema_registry.add(
-    'JSWebSocketClientMessage', {
-        'action': {
-            'type': 'string',
-        },
-        'payload': {
-            'oneof': [
-                {
-                    'schema': 'JSSendChatEventActionPayload',
-                    'dependencies': {
-                        'type': WSClientActionType.SEND_CHAT_MESSAGE.value
-                    }
-                }
-            ]
-        }
-    }
-)
-
-schema_registry.add(
-    'JSSendChatEventActionPayload', {
+    'JSChatEvent', {
         'type': {
             'type': 'string'
         },
@@ -113,6 +96,22 @@ schema_registry.add(
                 'schema': 'JSChatEventMessagePayload',
                 'dependencies': {
                     'type': ChatEventType.message.value
+                }
+            }]
+        }
+    }
+)
+
+schema_registry.add(
+    'JSWebSocketClientMessage', {
+        'type': {
+            'type': 'string',
+        },
+        'payload': {
+            'oneof': [{
+                'schema': 'JSChatEvent',
+                'dependencies': {
+                    'type': WSClientActionType.SEND_CHAT_MESSAGE.value
                 }
             }]
         }
