@@ -1,5 +1,5 @@
-import * as userActions from '@src/js/actions/user'
-import * as api from '@src/js/api'
+import * as userActions from '@src/actions/user'
+import * as api from '@src/api'
 
 import {ActionDispatcher} from './base'
 

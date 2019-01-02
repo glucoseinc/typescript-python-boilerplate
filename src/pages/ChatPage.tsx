@@ -4,10 +4,10 @@ import TextField from '@material-ui/core/TextField'
 import React from 'react'
 import {connect, DispatchProp} from 'react-redux'
 
-import ChatMessage from '@src/js/components/ChatMessage'
-import ChatActionDispatcher from '@src/js/dispatchers/chat'
-import {AppState, UserState} from '@src/js/reducers'
-import {ChatEvent, ChatEventMessage, User} from '@src/js/types'
+import ChatMessage from '@src/components/ChatMessage'
+import ChatActionDispatcher from '@src/dispatchers/chat'
+import {AppState, UserState} from '@src/reducers'
+import {ChatEvent, ChatEventMessage, User} from '@src/types'
 
 interface ChatPageProps {
   log: ChatEvent[]

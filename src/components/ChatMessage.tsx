@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 import React from 'react'
 
-import {ChatEvent, ChatEventMessagePayload} from '@src/js/types'
+import {ChatEvent, ChatEventMessagePayload} from '@src/types'
 
 const styles = (theme: Theme) =>
   createStyles({

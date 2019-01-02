@@ -1,12 +1,12 @@
 import {Action, Dispatch, Middleware, MiddlewareAPI} from 'redux'
 import {isType} from 'typescript-fsa'
 
-import * as chatActions from '@src/js/actions/chat'
-import * as infraActions from '@src/js/actions/infra'
-import * as userActions from '@src/js/actions/user'
-import {InternalInconsistencyError} from '@src/js/errors'
-import {ServerActionType} from '@src/js/types'
-import websocket from '@src/js/websocket'
+import * as chatActions from '@src/actions/chat'
+import * as infraActions from '@src/actions/infra'
+import * as userActions from '@src/actions/user'
+import {InternalInconsistencyError} from '@src/errors'
+import {ServerActionType} from '@src/types'
+import websocket from '@src/websocket'
 /**
  * WS(というかゆくゆくはServiceWorker)はloginとともに接続して、logoutとともに切断したいのでMiddelwareで監視する
  */

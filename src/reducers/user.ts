@@ -1,8 +1,8 @@
 import {Action} from 'redux'
 import {isType} from 'typescript-fsa'
 
-import * as userActions from '@src/js/actions/user'
-import {User} from '@src/js/types'
+import * as userActions from '@src/actions/user'
+import {User} from '@src/types'
 
 export interface UserState {
   isLoggedIn: boolean

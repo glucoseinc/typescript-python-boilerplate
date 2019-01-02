@@ -20,8 +20,8 @@ import React from 'react'
 import {connect, DispatchProp} from 'react-redux'
 import {Dispatch} from 'redux'
 
-import UserActionDispatcher from '@src/js/dispatchers/user'
-import {AppState, UserState} from '@src/js/reducers'
+import UserActionDispatcher from '@src/dispatchers/user'
+import {AppState, UserState} from '@src/reducers'
 
 const styles = (theme: Theme) =>
   createStyles({

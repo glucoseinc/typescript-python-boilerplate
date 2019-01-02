@@ -1,11 +1,11 @@
 import uuidv1 from 'uuid/v1'
 
-import * as chatActions from '@src/js/actions/chat'
-import * as api from '@src/js/api'
-import {InternalInconsistencyError} from '@src/js/errors'
-import store from '@src/js/store'
-import {ChatEventMessage, ClientActionType} from '@src/js/types'
-import websocket from '@src/js/websocket'
+import * as chatActions from '@src/actions/chat'
+import * as api from '@src/api'
+import {InternalInconsistencyError} from '@src/errors'
+import store from '@src/store'
+import {ChatEventMessage, ClientActionType} from '@src/types'
+import websocket from '@src/websocket'
 import {ActionDispatcher} from './base'
 
 class ChatActionDispatcher extends ActionDispatcher {

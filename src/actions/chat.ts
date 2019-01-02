@@ -1,6 +1,6 @@
 import {actionCreator} from './base'
 
-import {ChatEvent} from '@src/js/types'
+import {ChatEvent} from '@src/types'
 
 // ChatEventを追加する
 export const appendChatEvent = actionCreator<{chatEvent: ChatEvent}>('CHAT_APPEND_EVENT')

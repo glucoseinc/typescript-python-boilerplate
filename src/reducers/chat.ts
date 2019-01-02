@@ -1,8 +1,8 @@
 import {Action} from 'redux'
 import {isType} from 'typescript-fsa'
 
-import * as chatActions from '@src/js/actions/chat'
-import {ChatEvent, User} from '@src/js/types'
+import * as chatActions from '@src/actions/chat'
+import {ChatEvent, User} from '@src/types'
 
 export interface ChatState {
   log: ChatEvent[]
