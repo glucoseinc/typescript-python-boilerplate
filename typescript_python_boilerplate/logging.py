@@ -30,8 +30,9 @@ if has_colorama:
         def formatMessage(self, record):  # noqa
             assert isinstance(record, logging.LogRecord)
 
-            record.nice_levelname = self._colored(self.level_color_map[record.levelname],
-                                                  '[{}]'.format(self.short_levelname_map[record.levelname]))
+            record.nice_levelname = self._colored(
+                self.level_color_map[record.levelname], '[{}]'.format(self.short_levelname_map[record.levelname])
+            )
             record.nice_name = self._colored(self.name_color, record.name)
             if hasattr(record, 'asctime'):
                 record.asctime = self._colored(self.asctime_color, record.asctime)
@@ -46,7 +47,7 @@ def init_logging(debug, force_tty=False):
         # if we are attached to tty, use colorful.
 
         if has_colorama:
-            fh.setFormatter(NiceColoredFormatter('%(nice_levelname)s %(asctime)s %(nice_name)s : %(message)s', ))
+            fh.setFormatter(NiceColoredFormatter('%(nice_levelname)s %(asctime)s %(nice_name)s : %(message)s',))
         else:
             fh.setFormatter(logging.Formatter('%(levelname)s %(asctime)s %(name)s : %(message)s',))
     else:

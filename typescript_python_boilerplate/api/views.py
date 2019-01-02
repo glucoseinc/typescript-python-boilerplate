@@ -14,7 +14,6 @@ from . import bp
 if TYPE_CHECKING:
     from typing import Dict
 
-
 LOGIN_SCHEMA = {
     'nickname': {
         'type': 'string',
@@ -26,7 +25,9 @@ LOGIN_SCHEMA = {
 
 
 def api(schema: Dict[str, dict]):
+
     def wrapper(f):
+
         @functools.wraps(f)
         def wrapped(request, *args, **kwargs):
             v = Validator()
@@ -38,6 +39,7 @@ def api(schema: Dict[str, dict]):
             return json({'succeeded': True, 'payload': payload})
 
         return wrapped
+
     return wrapper
 
 

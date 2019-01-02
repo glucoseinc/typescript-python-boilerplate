@@ -1,6 +1,5 @@
 from sanic import Blueprint
 
-
 bp = Blueprint('public')
 
 # load views

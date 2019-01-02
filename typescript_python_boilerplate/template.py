@@ -53,6 +53,7 @@ def templated(template: str, status: int = 200, headers: Mapping[str, str] = Non
     """
 
     def wrapper(f):
+
         @functools.wraps(f)
         async def wrapped(*args, **kwargs):
             if asyncio.iscoroutinefunction(f):
