@@ -2,12 +2,15 @@ version: '3'
 
 services:
   redis:
-    image: redis:5-alpine3.8
+    image: redis:4-alpine3.8
 
   nginx:
     build:
       context: .
       dockerfile: services/nginx/Dockerfile
+
+    depends_on:
+      - webapp
 
     image: typescript-python-boilerplate-nginx:latest
 
