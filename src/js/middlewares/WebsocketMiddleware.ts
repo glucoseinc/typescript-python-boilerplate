@@ -1,6 +1,7 @@
 import {Action, Dispatch, Middleware, MiddlewareAPI} from 'redux'
 import {isType} from 'typescript-fsa'
 
+import * as infraActions from '@src/js/actions/infra'
 import * as userActions from '@src/js/actions/user'
 import websocket from '@src/js/websocket'
 /**
@@ -11,6 +12,12 @@ const websocketMiddleware: Middleware = ({getState}: MiddlewareAPI) => (next) =>
     websocket.start()
   } else if (isType(action, userActions.logout)) {
     websocket.stop()
+  } else if (isType(action, infraActions.websocketClosed)) {
+    // login中だったら再接続
+    const {user} = getState()
+    if (user.isLoggedIn) {
+      websocket.restart()
+    }
   }
 
   return next(action)

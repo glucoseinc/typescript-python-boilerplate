@@ -22,3 +22,4 @@ services:
 
     volumes:
       - ./static:/app/static
+      - ./typescript_python_boilerplate:/app/typescript_python_boilerplate

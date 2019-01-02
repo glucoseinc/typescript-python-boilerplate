@@ -11,10 +11,7 @@ def create_webapp():
     init_jinja2_template(webapp)
 
     # load manifest json
-    with open('./static/manifest.json') as fp:
-        manifest = json.load(fp)
-
-    webapp.jinja_env.globals.update(MANIFEST=manifest)
+    webapp.jinja_env.globals.update(MANIFEST=load_manifest())
 
     # register blueprints
     for module, url_prefix in [('.api', '/api'), ('.public', '/')]:
@@ -24,6 +21,12 @@ def create_webapp():
     return webapp
 
 
+def load_manifest():
+    with open('./static/manifest.json') as fp:
+        manifest = json.load(fp)
+    return manifest
+
+
 webapp = create_webapp()
 
-__all__ = ('webapp',)
+__all__ = ('webapp', 'load_manifest')
