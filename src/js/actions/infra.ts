@@ -7,7 +7,8 @@ export const websocketConnect = actionCreator.async<{}, {}, {}>('WEBSOCKET_CONNE
 export const websocketClosed = actionCreator<{}>('WEBSOCKET_CLOSED')
 
 // Websocketでサーバからメッセージが送られてきた
+// TODO: 手抜き
 export const websocketMessage = actionCreator<{
-  type: 'REPLACE_CHAT_LOG'
+  type: 'APPEND_CHAT_EVENT' | 'REPLACE_CHAT_LOG'
   payload: any
 }>('WEBSOCKET_MESSAGE')
