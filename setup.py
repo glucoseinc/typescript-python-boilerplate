@@ -29,6 +29,7 @@ setup(
             'flake8-import-order',
             'mypy',
             'mypy-extensions',
+            'pip-licenses',
             'pytest',
             'pytest-asyncio',
             'pytest-cov',
