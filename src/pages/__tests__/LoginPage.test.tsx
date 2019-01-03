@@ -2,7 +2,6 @@ import {mount} from 'enzyme'
 import * as React from 'react'
 
 // https://stackoverflow.com/questions/53184529/typescript-doesnt-recognize-my-jest-mock-module
-import * as userdispatcherMock from '@src/dispatchers/__mocks__/user'
 import * as userdispatcher from '@src/dispatchers/user'
 import FakeProvider from '@src/testing/FakeProvider'
 import LoginPage from '../LoginPage'
