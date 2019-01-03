@@ -28,7 +28,7 @@ def create_webapp(dummy_manifest: Optional[dict] = None):
     # register blueprints
     for module, url_prefix in [('.api', '/api'), ('.public', '/')]:
         mod = importlib.import_module(module, __name__.split('.')[0])
-        webapp.blueprint(mod.bp, url_prefix=url_prefix)
+        webapp.blueprint(mod.bp, url_prefix=url_prefix)  # type: ignore
 
     return webapp
 

@@ -23,6 +23,7 @@ format:
 lint:
 	pipenv run lint
 	yarn run lint
+	pipenv run typing
 
 .PHONY: test
 test: lint

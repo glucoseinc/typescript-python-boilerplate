@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from sanic.request import Request
     from websockets.protocol import WebSocketCommonProtocol as WebSocket
 
-    from ..interoperability import SendChatEventActionPayload
+    from ..interoperability import JSSendChatEventActionPayload
 
 WAIT_TIMEOUT = 5
 
@@ -69,7 +69,7 @@ def make_server_action(action_type: WSServerActionType, payload: Any) -> str:
     return json.dumps({'type': action_type.value, 'payload': payload})
 
 
-async def receive_ws_message(app: App, ws: WebSocket, message: dict) -> None:
+async def receive_ws_message(app: App, ws: WebSocket, message: dict) -> str:
     logger.debug('ws message received: %r', message)
     validator.validate(message, schema='JSWebSocketClientMessage')
 
@@ -80,7 +80,7 @@ async def receive_ws_message(app: App, ws: WebSocket, message: dict) -> None:
         raise BadActionError('Unsupported client action type "{}"'.format(action_type))
 
 
-async def receive_send_chat_message_action(app: App, ws: WebSocket, payload: SendChatEventActionPayload) -> None:
+async def receive_send_chat_message_action(app: App, ws: WebSocket, payload: JSSendChatEventActionPayload) -> str:
     # add server id
     server_id = str(uuid.uuid4())
     payload['serverId'] = server_id
