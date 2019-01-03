@@ -64,6 +64,7 @@
     "cssnano": "^4.1.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^2.0.1",
     "jss": "~10.0.0-alpha.5",
@@ -104,6 +105,9 @@
     },
     "setupFiles": [
       "./src/jest.setup.ts"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ],
     "testRegex": "/__tests__/.+.test\\.tsx?$",
     "testURL": "http://localhost",

@@ -4,7 +4,7 @@ import withStyles, {WithStyles} from '@material-ui/core/styles/withStyles'
 
 import classNames from 'classnames'
 
-import React from 'react'
+import * as React from 'react'
 
 import {divider, primaryText, secondaryText} from '@src/palette'
 import {ChatEvent, ChatEventMessagePayload} from '@src/types'
