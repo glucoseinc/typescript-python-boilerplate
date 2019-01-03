@@ -1,6 +1,22 @@
-READMEに書いていない話をこっちで
+### License
 
-## 迷ったところ
+(弊社業務だと)これをベースに商用利用するものを作ることが多いのでライセンスは定期的に確認する(自動化しろよ)
+ライブラリが更新されるとライセンスが変わっていたりする
+
+package.jsonのdependencies, setup.pyのinstall_requiresについてライセンスを確認する。
+depDependenciesやextra_requiresは開発中のみ使うものなのであまり気にしない。
+
+使うライブラリの依存関係はどうするか? (効率的な確認方法あるかな)
+
+サーバ側はAGPLでない限り利用可能。
+フロントエンド側は(そもそもソースコード配っているようなもんだが...)念の為GPL系は確認する。
+
+注意すべきライセンスは
+* GPL系
+* BSD-4-Caluse
+
+JSは`yarn licenses ls`、Pyは`pip-licenses`で確認できる。
+
 
 ### Python 3.7 webframework
 
