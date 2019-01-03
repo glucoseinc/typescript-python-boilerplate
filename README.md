@@ -10,42 +10,14 @@
 
 # Policy
 
-## ライブラリ選定
+以下のポリシーで開発を進める。
 
-* License >>> それしかないか/de factoか? > コードがシンプルか? >> 趣味 > 開発の活発さ/枯れ具合
-
-### License
-
-(弊社業務だと)これをベースに商用利用するものを作ることが多いのでライセンスは定期的に確認する(自動化しろよ)
-ライブラリが更新されるとライセンスが変わっていたりする
-
-package.jsonのdependencies, setup.pyのinstall_requiresについてライセンスを確認する。
-depDependenciesやextra_requiresは開発中のみ使うものなのであまり気にしない。
-
-使うライブラリの依存関係はどうするか? (効率的な確認方法あるかな)
-
-サーバ側はAGPLでない限り利用可能。
-フロントエンド側は(そもそもソースコード配っているようなもんだが...)念の為GPL系は確認する。
-
-注意すべきライセンスは
-* GPL系
-* BSD-4-Caluse
-
-JSは`yarn licenses ls`、Pyは`pip-licenses`で確認できる。
-
-
-## 開発スタイル
-
-* Hot module reloadingは使わない
-
-## フロントエンド
-
+* ライブラリは、"License >>> それしかないか/de factoか? > コードがシンプルか? >> 趣味 > 開発の活発さ/枯れ具合"の優先度で検討する。
+* フロントエンドの開発は、Hot module reloadingは使わない。できるだけProduction環境と近いもので開発する
 * async/await用のmiddleware(=redux-thunk, redux-saga)は使わず、ActionDispatcherで対応する
+* コードとテストのファイルは1:1で対応させる
 
-
-## サーバ
-
-TODO
+あくまで、原則
 
 # Setup
 
@@ -72,6 +44,30 @@ $ pipenv install -e '.[test]'
 
 # In development
 
+## テスト駆動にすすめる
+
+javascript
+
+```sh
+% yarn run test-watch
+```
+
+python
+```sh
+% pipenv shell
+% ptw
+```
+
+のようにしてWatchモードにしながらコードとテストを書くのが快適だと思う。
+
+## カーボーイにすすめる
+
+```sh
+% make run
+```
+
+するとWebサーバと、ビルドプロセスが立ち上がるのでローカルのコードを書き換えれば随時Watchされてサーバが再起動 & フロントエンドもリビルドされる。
+
 ## Chrome Redux DevTool
 
 あると便利
@@ -80,9 +76,13 @@ $ pipenv install -e '.[test]'
 ## Pythonのモジュールを追加したら
 
 1. setup.pyの`install_requires`, `extras_require`に追加
-2. `pipenv install -e '.[test]'`
-3. `pipenv lock`
+2. `pipenv lock && pipenv install --dev`
 
 ## JSのモジュールを追加したら
 
 普通に`yarn install [-D]`
+
+
+# 検討した話とか
+
+[こっち](/ENTRY.md)に書いた。

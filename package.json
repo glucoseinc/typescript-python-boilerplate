@@ -10,6 +10,7 @@
     "format": "prettier 'src/**/*.{ts,tsx}' --write && tslint --fix -p .",
     "storybook": "start-storybook -p 6003",
     "test": "jest -w 4 --coverage",
+    "test-watch": "jest -w 4 --coverage --watch",
     "watch": "webpack --watch --mode development"
   },
   "dependencies": {
@@ -63,6 +64,7 @@
     "cssnano": "^4.1.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^2.0.1",
     "jss": "~10.0.0-alpha.5",
@@ -91,6 +93,14 @@
       "!src/**/index.{ts,tsx}"
     ],
     "coverageDirectory": "./coverage_js",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "pathRegex": "\\.test\\.tsx?$",
+          "warnOnly": true
+        }
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -103,6 +113,9 @@
     },
     "setupFiles": [
       "./src/jest.setup.ts"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ],
     "testRegex": "/__tests__/.+.test\\.tsx?$",
     "testURL": "http://localhost",

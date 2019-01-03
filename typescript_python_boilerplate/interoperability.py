@@ -13,7 +13,7 @@ from .constants import ChatEventType, WSClientActionType
 from .exceptions import ValidationError
 
 if TYPE_CHECKING:
-    from typing import Optional, TypeVar
+    from typing import Any, Optional
 
     from mypy_extensions import TypedDict
 
@@ -25,14 +25,12 @@ if TYPE_CHECKING:
         user: JSUser
         message: str
 
-    ChatEventPayload = TypeVar('Payload')
-
     class JSChatEvent(TypedDict):
         type: str
         localId: Optional[str]
         serverId: Optional[str]
         timestamp: int
-        payload: ChatEventPayload
+        payload: Any
 
     JSSendChatEventActionPayload = JSChatEvent
 

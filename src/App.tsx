@@ -3,7 +3,7 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
 
 import {ConnectedRouter} from 'connected-react-router'
 import {History} from 'history'
-import React from 'react'
+import * as React from 'react'
 import {Route, Switch} from 'react-router'
 
 import AppContainer from './components/AppContainer'

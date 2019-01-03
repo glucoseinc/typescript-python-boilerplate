@@ -23,6 +23,7 @@ setup(
     },
     extras_require={
         'test': [
+            'aiohttp',
             'autopep8',
             'coverage',
             'flake8',
@@ -34,6 +35,7 @@ setup(
             'pytest-asyncio',
             'pytest-cov',
             'pytest-timeout',
+            'pytest-watch',
             'tcptest',
             'yapf',
         ],

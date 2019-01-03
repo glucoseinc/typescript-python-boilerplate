@@ -7,4 +7,5 @@ tests/
 tmp/
 .git
 .coverage
+codecov.yml
 coverage.xml

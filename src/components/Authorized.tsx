@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import {connect} from 'react-redux'
 import {Redirect, Route} from 'react-router'
 
@@ -11,7 +11,6 @@ interface AuthoizedProps {
 class Authoized extends React.Component<AuthoizedProps, {}> {
   // overrides
   public render() {
-    // const {isAuthorized}
     const isAuthorized = this.props.user.isLoggedIn
 
     return isAuthorized ? <Route children={this.props.children} /> : <Redirect to={'/login'} />

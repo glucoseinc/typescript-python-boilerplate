@@ -1,0 +1,514 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatPage renders correctly 1`] = `
+<ChatPage
+  classes={
+    Object {
+      "chatLog": "Connect-ChatPage--chatLog-1",
+      "root": "Connect-ChatPage--root-2",
+    }
+  }
+  dispatch={[MockFunction]}
+  log={
+    Array [
+      Object {
+        "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "payload": Object {
+          "message": "hogehgoehogehoge",
+          "user": Object {
+            "discriminator": "1234",
+            "nickname": "test",
+          },
+        },
+        "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+        "timestamp": 1546442227650,
+        "type": "message",
+      },
+    ]
+  }
+  me={
+    Object {
+      "discriminator": "1234",
+      "nickname": "test",
+    }
+  }
+>
+  <main
+    className="Connect-ChatPage--root-2"
+  >
+    <div
+      className="Connect-ChatPage--chatLog-1"
+    >
+      <WithStyles(ChatMessage)
+        chatEvent={
+          Object {
+            "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+            "payload": Object {
+              "message": "hogehgoehogehoge",
+              "user": Object {
+                "discriminator": "1234",
+                "nickname": "test",
+              },
+            },
+            "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+            "timestamp": 1546442227650,
+            "type": "message",
+          }
+        }
+        key="69A6FEA4-84E4-473E-9689-7DC2E6F5F82C:69A6FEA4-84E4-473E-9689-7DC2E6F5F82C"
+      >
+        <ChatMessage
+          chatEvent={
+            Object {
+              "localId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+              "payload": Object {
+                "message": "hogehgoehogehoge",
+                "user": Object {
+                  "discriminator": "1234",
+                  "nickname": "test",
+                },
+              },
+              "serverId": "69A6FEA4-84E4-473E-9689-7DC2E6F5F82C",
+              "timestamp": 1546442227650,
+              "type": "message",
+            }
+          }
+          classes={
+            Object {
+              "date": "ChatMessage-date-3",
+              "discriminator": "ChatMessage-discriminator-4",
+              "meta": "ChatMessage-meta-5",
+              "nickname": "ChatMessage-nickname-6",
+              "root": "ChatMessage-root-7",
+            }
+          }
+        >
+          <div
+            className="ChatMessage-root-7"
+          >
+            <div
+              className="ChatMessage-meta-5"
+            >
+              <span>
+                <span
+                  className="ChatMessage-nickname-6"
+                >
+                  test
+                </span>
+                <span
+                  className="ChatMessage-discriminator-4"
+                >
+                  #
+                  1234
+                </span>
+              </span>
+              <span
+                className="ChatMessage-date-3"
+              >
+                2019-01-03 00:17:07
+              </span>
+            </div>
+            <div>
+              hogehgoehogehoge
+            </div>
+          </div>
+        </ChatMessage>
+      </WithStyles(ChatMessage)>
+    </div>
+    <div>
+      <TextField
+        autoFocus={true}
+        multiline={true}
+        onChange={[Function]}
+        required={false}
+        select={false}
+        value=""
+        variant="standard"
+      >
+        <WithStyles(FormControl)
+          required={false}
+          variant="standard"
+        >
+          <FormControl
+            classes={
+              Object {
+                "fullWidth": "MuiFormControl-fullWidth-11",
+                "marginDense": "MuiFormControl-marginDense-10",
+                "marginNormal": "MuiFormControl-marginNormal-9",
+                "root": "MuiFormControl-root-8",
+              }
+            }
+            component="div"
+            disabled={false}
+            error={false}
+            fullWidth={false}
+            margin="none"
+            required={false}
+            variant="standard"
+          >
+            <div
+              className="MuiFormControl-root-8"
+            >
+              <WithStyles(Input)
+                autoFocus={true}
+                multiline={true}
+                onChange={[Function]}
+                value=""
+              >
+                <Input
+                  autoFocus={true}
+                  classes={
+                    Object {
+                      "disabled": "MuiInput-disabled-15",
+                      "error": "MuiInput-error-17",
+                      "focused": "MuiInput-focused-14",
+                      "formControl": "MuiInput-formControl-13",
+                      "fullWidth": "MuiInput-fullWidth-19",
+                      "input": "MuiInput-input-20",
+                      "inputMarginDense": "MuiInput-inputMarginDense-21",
+                      "inputMultiline": "MuiInput-inputMultiline-22",
+                      "inputType": "MuiInput-inputType-23",
+                      "inputTypeSearch": "MuiInput-inputTypeSearch-24",
+                      "multiline": "MuiInput-multiline-18",
+                      "root": "MuiInput-root-12",
+                      "underline": "MuiInput-underline-16",
+                    }
+                  }
+                  multiline={true}
+                  onChange={[Function]}
+                  value=""
+                >
+                  <WithStyles(WithFormControlContext(InputBase))
+                    autoFocus={true}
+                    classes={
+                      Object {
+                        "disabled": "MuiInput-disabled-15",
+                        "error": "MuiInput-error-17",
+                        "focused": "MuiInput-focused-14",
+                        "formControl": "MuiInput-formControl-13",
+                        "fullWidth": "MuiInput-fullWidth-19",
+                        "input": "MuiInput-input-20",
+                        "inputMarginDense": "MuiInput-inputMarginDense-21",
+                        "inputMultiline": "MuiInput-inputMultiline-22",
+                        "inputType": "MuiInput-inputType-23",
+                        "inputTypeSearch": "MuiInput-inputTypeSearch-24",
+                        "multiline": "MuiInput-multiline-18",
+                        "root": "MuiInput-root-12 MuiInput-underline-16",
+                        "underline": null,
+                      }
+                    }
+                    fullWidth={false}
+                    inputComponent="input"
+                    multiline={true}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  >
+                    <WithFormControlContext(InputBase)
+                      autoFocus={true}
+                      classes={
+                        Object {
+                          "adornedEnd": "MuiInputBase-adornedEnd-30",
+                          "adornedStart": "MuiInputBase-adornedStart-29",
+                          "disabled": "MuiInputBase-disabled-28 MuiInput-disabled-15",
+                          "error": "MuiInputBase-error-31 MuiInput-error-17",
+                          "focused": "MuiInputBase-focused-27 MuiInput-focused-14",
+                          "formControl": "MuiInputBase-formControl-26 MuiInput-formControl-13",
+                          "fullWidth": "MuiInputBase-fullWidth-34 MuiInput-fullWidth-19",
+                          "input": "MuiInputBase-input-35 MuiInput-input-20",
+                          "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-41",
+                          "inputAdornedStart": "MuiInputBase-inputAdornedStart-40",
+                          "inputMarginDense": "MuiInputBase-inputMarginDense-36 MuiInput-inputMarginDense-21",
+                          "inputMultiline": "MuiInputBase-inputMultiline-37 MuiInput-inputMultiline-22",
+                          "inputType": "MuiInputBase-inputType-38 MuiInput-inputType-23",
+                          "inputTypeSearch": "MuiInputBase-inputTypeSearch-39 MuiInput-inputTypeSearch-24",
+                          "marginDense": "MuiInputBase-marginDense-32",
+                          "multiline": "MuiInputBase-multiline-33 MuiInput-multiline-18",
+                          "root": "MuiInputBase-root-25 MuiInput-root-12 MuiInput-underline-16",
+                        }
+                      }
+                      fullWidth={false}
+                      inputComponent="input"
+                      multiline={true}
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    >
+                      <InputBase
+                        autoFocus={true}
+                        classes={
+                          Object {
+                            "adornedEnd": "MuiInputBase-adornedEnd-30",
+                            "adornedStart": "MuiInputBase-adornedStart-29",
+                            "disabled": "MuiInputBase-disabled-28 MuiInput-disabled-15",
+                            "error": "MuiInputBase-error-31 MuiInput-error-17",
+                            "focused": "MuiInputBase-focused-27 MuiInput-focused-14",
+                            "formControl": "MuiInputBase-formControl-26 MuiInput-formControl-13",
+                            "fullWidth": "MuiInputBase-fullWidth-34 MuiInput-fullWidth-19",
+                            "input": "MuiInputBase-input-35 MuiInput-input-20",
+                            "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-41",
+                            "inputAdornedStart": "MuiInputBase-inputAdornedStart-40",
+                            "inputMarginDense": "MuiInputBase-inputMarginDense-36 MuiInput-inputMarginDense-21",
+                            "inputMultiline": "MuiInputBase-inputMultiline-37 MuiInput-inputMultiline-22",
+                            "inputType": "MuiInputBase-inputType-38 MuiInput-inputType-23",
+                            "inputTypeSearch": "MuiInputBase-inputTypeSearch-39 MuiInput-inputTypeSearch-24",
+                            "marginDense": "MuiInputBase-marginDense-32",
+                            "multiline": "MuiInputBase-multiline-33 MuiInput-multiline-18",
+                            "root": "MuiInputBase-root-25 MuiInput-root-12 MuiInput-underline-16",
+                          }
+                        }
+                        fullWidth={false}
+                        inputComponent="input"
+                        muiFormControl={
+                          Object {
+                            "adornedStart": false,
+                            "disabled": false,
+                            "error": false,
+                            "filled": false,
+                            "focused": false,
+                            "margin": "none",
+                            "onBlur": [Function],
+                            "onEmpty": [Function],
+                            "onFilled": [Function],
+                            "onFocus": [Function],
+                            "required": false,
+                            "variant": "standard",
+                          }
+                        }
+                        multiline={true}
+                        onChange={[Function]}
+                        type="text"
+                        value=""
+                      >
+                        <div
+                          className="MuiInputBase-root-25 MuiInput-root-12 MuiInput-underline-16 MuiInputBase-formControl-26 MuiInput-formControl-13 MuiInputBase-multiline-33 MuiInput-multiline-18"
+                          onClick={[Function]}
+                        >
+                          <WithStyles(Textarea)
+                            aria-invalid={false}
+                            autoFocus={true}
+                            className="MuiInputBase-input-35 MuiInput-input-20 MuiInputBase-inputMultiline-37 MuiInput-inputMultiline-22"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            required={false}
+                            textareaRef={[Function]}
+                            value=""
+                          >
+                            <Textarea
+                              aria-invalid={false}
+                              autoFocus={true}
+                              className="MuiInputBase-input-35 MuiInput-input-20 MuiInputBase-inputMultiline-37 MuiInput-inputMultiline-22"
+                              classes={
+                                Object {
+                                  "root": "MuiPrivateTextarea-root-42",
+                                  "shadow": "MuiPrivateTextarea-shadow-44",
+                                  "textarea": "MuiPrivateTextarea-textarea-43",
+                                }
+                              }
+                              disabled={false}
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              required={false}
+                              rows={1}
+                              textareaRef={[Function]}
+                              value=""
+                            >
+                              <div
+                                className="MuiPrivateTextarea-root-42"
+                              >
+                                <EventListener
+                                  onResize={[Function]}
+                                  target="window"
+                                />
+                                <textarea
+                                  aria-hidden="true"
+                                  className="MuiPrivateTextarea-textarea-43 MuiPrivateTextarea-shadow-44"
+                                  readOnly={true}
+                                  rows="1"
+                                  tabIndex={-1}
+                                  value=""
+                                />
+                                <textarea
+                                  aria-hidden="true"
+                                  className="MuiPrivateTextarea-textarea-43 MuiPrivateTextarea-shadow-44"
+                                  readOnly={true}
+                                  rows={1}
+                                  tabIndex={-1}
+                                  value=""
+                                />
+                                <textarea
+                                  aria-invalid={false}
+                                  autoFocus={true}
+                                  className="MuiPrivateTextarea-textarea-43 MuiInputBase-input-35 MuiInput-input-20 MuiInputBase-inputMultiline-37 MuiInput-inputMultiline-22"
+                                  disabled={false}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={false}
+                                  rows={1}
+                                  style={
+                                    Object {
+                                      "height": 0,
+                                    }
+                                  }
+                                  value=""
+                                />
+                              </div>
+                            </Textarea>
+                          </WithStyles(Textarea)>
+                        </div>
+                      </InputBase>
+                    </WithFormControlContext(InputBase)>
+                  </WithStyles(WithFormControlContext(InputBase))>
+                </Input>
+              </WithStyles(Input)>
+            </div>
+          </FormControl>
+        </WithStyles(FormControl)>
+      </TextField>
+      <WithStyles(Button)
+        disabled={false}
+        onClick={[Function]}
+      >
+        <Button
+          classes={
+            Object {
+              "colorInherit": "MuiButton-colorInherit-66",
+              "contained": "MuiButton-contained-56",
+              "containedPrimary": "MuiButton-containedPrimary-57",
+              "containedSecondary": "MuiButton-containedSecondary-58",
+              "disabled": "MuiButton-disabled-65",
+              "extendedFab": "MuiButton-extendedFab-63",
+              "fab": "MuiButton-fab-62",
+              "flat": "MuiButton-flat-50",
+              "flatPrimary": "MuiButton-flatPrimary-51",
+              "flatSecondary": "MuiButton-flatSecondary-52",
+              "focusVisible": "MuiButton-focusVisible-64",
+              "fullWidth": "MuiButton-fullWidth-70",
+              "label": "MuiButton-label-46",
+              "mini": "MuiButton-mini-67",
+              "outlined": "MuiButton-outlined-53",
+              "outlinedPrimary": "MuiButton-outlinedPrimary-54",
+              "outlinedSecondary": "MuiButton-outlinedSecondary-55",
+              "raised": "MuiButton-raised-59",
+              "raisedPrimary": "MuiButton-raisedPrimary-60",
+              "raisedSecondary": "MuiButton-raisedSecondary-61",
+              "root": "MuiButton-root-45",
+              "sizeLarge": "MuiButton-sizeLarge-69",
+              "sizeSmall": "MuiButton-sizeSmall-68",
+              "text": "MuiButton-text-47",
+              "textPrimary": "MuiButton-textPrimary-48",
+              "textSecondary": "MuiButton-textSecondary-49",
+            }
+          }
+          color="default"
+          component="button"
+          disableFocusRipple={false}
+          disabled={false}
+          fullWidth={false}
+          mini={false}
+          onClick={[Function]}
+          size="medium"
+          type="button"
+          variant="text"
+        >
+          <WithStyles(ButtonBase)
+            className="MuiButton-root-45 MuiButton-text-47 MuiButton-flat-50"
+            component="button"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="MuiButton-focusVisible-64"
+            onClick={[Function]}
+            type="button"
+          >
+            <ButtonBase
+              centerRipple={false}
+              className="MuiButton-root-45 MuiButton-text-47 MuiButton-flat-50"
+              classes={
+                Object {
+                  "disabled": "MuiButtonBase-disabled-72",
+                  "focusVisible": "MuiButtonBase-focusVisible-73",
+                  "root": "MuiButtonBase-root-71",
+                }
+              }
+              component="button"
+              disableRipple={false}
+              disableTouchRipple={false}
+              disabled={false}
+              focusRipple={true}
+              focusVisibleClassName="MuiButton-focusVisible-64"
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <button
+                className="MuiButtonBase-root-71 MuiButton-root-45 MuiButton-text-47 MuiButton-flat-50"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                <span
+                  className="MuiButton-label-46"
+                >
+                  SEND
+                </span>
+                <NoSsr
+                  defer={false}
+                  fallback={null}
+                >
+                  <WithStyles(TouchRipple)
+                    center={false}
+                    innerRef={[Function]}
+                  >
+                    <TouchRipple
+                      center={false}
+                      classes={
+                        Object {
+                          "child": "MuiTouchRipple-child-78",
+                          "childLeaving": "MuiTouchRipple-childLeaving-79",
+                          "childPulsate": "MuiTouchRipple-childPulsate-80",
+                          "ripple": "MuiTouchRipple-ripple-75",
+                          "ripplePulsate": "MuiTouchRipple-ripplePulsate-77",
+                          "rippleVisible": "MuiTouchRipple-rippleVisible-76",
+                          "root": "MuiTouchRipple-root-74",
+                        }
+                      }
+                    >
+                      <TransitionGroup
+                        childFactory={[Function]}
+                        className="MuiTouchRipple-root-74"
+                        component="span"
+                        enter={true}
+                        exit={true}
+                      >
+                        <span
+                          className="MuiTouchRipple-root-74"
+                        />
+                      </TransitionGroup>
+                    </TouchRipple>
+                  </WithStyles(TouchRipple)>
+                </NoSsr>
+              </button>
+            </ButtonBase>
+          </WithStyles(ButtonBase)>
+        </Button>
+      </WithStyles(Button)>
+    </div>
+  </main>
+</ChatPage>
+`;

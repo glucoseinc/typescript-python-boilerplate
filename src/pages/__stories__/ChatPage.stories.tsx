@@ -1,8 +1,8 @@
 import {storiesOf} from '@storybook/react'
 import * as React from 'react'
 
+import FakeProvider from '@src/testing/FakeProvider'
 import ChatPage from '../ChatPage'
-import FakeProvider from './FakeProvider'
 
 export const TEST_DATA = {
   simple: {
