@@ -10,6 +10,7 @@
     "format": "prettier 'src/**/*.{ts,tsx}' --write && tslint --fix -p .",
     "storybook": "start-storybook -p 6003",
     "test": "jest -w 4 --coverage",
+    "test-watch": "jest -w 4 --coverage --watch",
     "watch": "webpack --watch --mode development"
   },
   "dependencies": {
