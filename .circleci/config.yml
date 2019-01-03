@@ -3,6 +3,8 @@ jobs:
   frontend-test:
     docker:
       - image: circleci/node:11
+        environment:
+          TZ: Asia/Tokyo
 
     working_directory: ~/repo
 
@@ -44,6 +46,8 @@ jobs:
   server-test:
     docker:
       - image: circleci/python:3.7
+        environment:
+          TZ: Asia/Tokyo
 
     working_directory: ~/repo
 

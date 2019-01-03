@@ -16,7 +16,7 @@ import createStyles from '@material-ui/core/styles/createStyles'
 import withStyles, {WithStyles} from '@material-ui/core/styles/withStyles'
 
 import {push} from 'connected-react-router'
-import React from 'react'
+import * as React from 'react'
 import {connect, DispatchProp} from 'react-redux'
 import {Dispatch} from 'redux'
 

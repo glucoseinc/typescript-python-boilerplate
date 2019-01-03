@@ -9,7 +9,7 @@ import withStyles, {WithStyles} from '@material-ui/core/styles/withStyles'
 
 import classNames from 'classnames'
 
-import React from 'react'
+import * as React from 'react'
 
 const styles = (theme: Theme) => {
   // theme.mixins.toolbarは@mediaクエリがあるけど面倒なので無視している...
