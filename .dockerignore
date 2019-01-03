@@ -7,3 +7,4 @@ tests/
 tmp/
 .git
 .coverage
+coverage.xml

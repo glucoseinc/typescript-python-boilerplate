@@ -58,6 +58,7 @@
     "@types/uuid": "^3.4.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.2",
+    "coveralls": "^3.0.2",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.0",
     "enzyme": "^3.6.0",

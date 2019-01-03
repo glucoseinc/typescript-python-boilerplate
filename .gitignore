@@ -9,4 +9,5 @@ typescript_python_boilerplate.egg-info/
 static/
 tmp/
 .coverage
+coverage.xml
 yarn-error.log

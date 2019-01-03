@@ -1,0 +1,13 @@
+[run]
+branch = True
+source = typescript_python_boilerplate
+
+[report]
+exclude_lines =
+    if TYPE_CHECKING:
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == .__main__.:
+ignore_errors = True
+omit =
+    tests/*
