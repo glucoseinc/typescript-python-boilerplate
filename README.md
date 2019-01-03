@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/glucoseinc/typescript-python-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/glucoseinc/typescript-python-boilerplate/tree/master)
+[![codecov](https://codecov.io/gh/glucoseinc/typescript-python-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/glucoseinc/typescript-python-boilerplate)
+[![Maintainability](https://api.codeclimate.com/v1/badges/822270b94dba62ecb89e/maintainability)](https://codeclimate.com/github/glucoseinc/typescript-python-boilerplate/maintainability)
+
 フロントエンド(Typescript w/ React + Redux + MaterialUI), サーバ(Python w/ AioHTTP)なプロジェクトのBoilerplate
 
 # Before Use
