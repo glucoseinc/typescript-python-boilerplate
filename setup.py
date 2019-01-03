@@ -23,6 +23,7 @@ setup(
     },
     extras_require={
         'test': [
+            'aiohttp',
             'autopep8',
             'coverage',
             'flake8',
