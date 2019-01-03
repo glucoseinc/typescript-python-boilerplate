@@ -5,9 +5,7 @@ import NotFoundPage from '../NotFoundPage'
 
 describe('NotFoundPage', () => {
   test('renders correctly', () => {
-    const element = mount(
-      <NotFoundPage />
-    )
+    const element = mount(<NotFoundPage />)
 
     expect(element.find('NotFoundPage')).toMatchSnapshot()
   })

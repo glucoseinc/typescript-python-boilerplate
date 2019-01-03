@@ -93,6 +93,14 @@
       "!src/**/index.{ts,tsx}"
     ],
     "coverageDirectory": "./coverage_js",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "pathRegex": "\\.test\\.tsx?$",
+          "warnOnly": true
+        }
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",

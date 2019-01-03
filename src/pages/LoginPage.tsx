@@ -60,8 +60,20 @@ interface LoginPageProps {
   user: UserState
 }
 
-class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof styles> & DispatchProp> {
+interface LoginPageState {
+  nickname: string
+}
+
+class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof styles> & DispatchProp, LoginPageState> {
   // overrides
+  constructor(props: LoginPageProps & WithStyles<typeof styles> & DispatchProp) {
+    super(props)
+
+    this.state = {
+      nickname: '',
+    }
+  }
+
   public componentDidUpdate(prevProps: LoginPageProps) {
     // login完了したらchatにリダイレクトする
     if (this.props.user.isLoggedIn) {
@@ -72,6 +84,7 @@ class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof style
 
   public render() {
     const {classes} = this.props
+    const {nickname} = this.state
 
     return (
       <main className={classes.main}>
@@ -86,7 +99,14 @@ class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof style
           <form className={classes.form} onSubmit={this.onSubmit}>
             <FormControl margin="normal" required={true} fullWidth={true}>
               <InputLabel htmlFor="nickname">Nickname</InputLabel>
-              <Input id="nickname" name="nickname" autoComplete="nickname" autoFocus={true} />
+              <Input
+                id="nickname"
+                name="nickname"
+                autoComplete="nickname"
+                autoFocus={true}
+                onChange={this.onChangeNickname}
+                value={nickname}
+              />
             </FormControl>
 
             <Button type="submit" fullWidth={true} variant="contained" color="primary" className={classes.submit}>
@@ -98,14 +118,17 @@ class LoginPage extends React.Component<LoginPageProps & WithStyles<typeof style
     )
   }
 
-  // privates
   public onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     const {dispatch} = this.props
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
-
+    const formData = new FormData(event.target as HTMLFormElement)
     await new UserActionDispatcher(dispatch).login(formData.get('nickname') as string)
+  }
+
+  // privates
+  private onChangeNickname = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({nickname: event.target.value})
   }
 }
 
