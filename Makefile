@@ -6,7 +6,7 @@ build:
 	$(dc) build
 
 .PHONY: run
-run:
+run: build
 	$(dc) up
 
 
@@ -25,6 +25,6 @@ lint:
 	yarn run lint
 
 .PHONY: test
-test:
+test: lint
 	pipenv run test
 	yarn run test
