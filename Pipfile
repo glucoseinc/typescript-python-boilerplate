@@ -4,9 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+typescript-python-boilerplate = {editable = true,extras = ["test"],path = "."}
 
 [packages]
-typescript-python-boilerplate = {editable = true,extras = ["test"],path = "."}
+typescript-python-boilerplate = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"

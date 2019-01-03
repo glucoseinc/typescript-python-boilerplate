@@ -34,6 +34,7 @@ setup(
             'pytest-asyncio',
             'pytest-cov',
             'pytest-timeout',
+            'pytest-watch',
             'tcptest',
             'yapf',
         ],
